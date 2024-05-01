@@ -19,7 +19,8 @@
   },
   "tasks": {
     "db:migrate": "deno run -A ./scripts/migrations.ts",
-    "dev": "deno run --watch --allow-net --allow-env --allow-read --check ./src/main.ts"
+    "dev": "deno run --watch --allow-net --allow-env --allow-read --check ./src/main.ts",
+    "build": "deno compile --output hono-movie  --allow-net --allow-env --allow-read --check ./src/main.ts"
   },
   "fmt": {
     "include": ["src/", "scripts/"],
