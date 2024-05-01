@@ -1,0 +1,28 @@
+version: "3.8"
+
+networks:
+  dono-hono-movie-network:
+    name: dono-hono-movie-network
+    driver: bridge
+
+volumes:
+ dono-hono-movie-vol:
+  name: dono-hono-movie-vol
+
+services:
+  deno-hono-movie-db:
+   container_name: deno-hono-movie-db
+   image: mysql:latest
+   networks:
+    - dono-hono-movie-network
+   ports:
+     - protocol: tcp
+       target: 3306
+       published: 5433
+   volumes:
+     - type: volume
+       source: dono-hono-movie-vol
+       target: /var/lib/mysql
+       read_only: false
+   environment:
+    MYSQL_ROOT_PASSWORD: root

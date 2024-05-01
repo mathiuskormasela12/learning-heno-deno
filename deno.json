@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "strict": true
+  },
+  "imports": {
+    "@/config": "./src/config/index.ts",
+    "@/helpers": "./src/helpers/index.ts",
+    "@/middlewares": "./src/middlewares/index.ts",
+    "@/models": "./src/models/index.ts",
+    "@/routers": "./src/routers/index.ts",
+    "@/services": "./src/services/index.ts",
+    "@/types": "./src/types/index.ts",
+    "@hono/zod-validator": "npm:@hono/zod-validator@^0.2.1",
+    "helmet": "npm:helmet@^7.1.0",
+    "hono": "npm:hono@^4.2.9",
+    "mysql/": "https://deno.land/x/mysql@v2.12.1/",
+    "winston": "npm:winston@^3.13.0",
+    "zod": "npm:zod@^3.23.5"
+  },
+  "tasks": {
+    "db:migrate": "deno run -A ./scripts/migrations.ts",
+    "dev": "deno run --watch --allow-net --allow-env --allow-read --check ./src/main.ts"
+  },
+  "fmt": {
+    "include": ["src/", "scripts/"],
+    "singleQuote": true,
+    "useTabs": false,
+    "semiColons": true,
+    "proseWrap": "always",
+    "indentWidth": 2,
+    "lineWidth": 80
+  },
+  "lint": {
+    "include": ["src/", "scripts/"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo"]
+    }
+  }
+}
